@@ -795,8 +795,6 @@ require("lazy").setup({
 	require("custom.plugins.nvim-dap"),
 	require("custom.plugins.nvim-dap-python"),
 	require("custom.plugins.nvim-dap-ui"),
-	require("custom.plugins.magma"),
-	require("custom.plugins.vim-jukit"),
 	require("custom.plugins.oil"),
 })
 
