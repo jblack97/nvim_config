@@ -1,12 +1,10 @@
 -- MY STUFF
 --shortcut for explore command
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -74,6 +72,16 @@ vim.g.jukit_mappings = 0
 -- vim.keymap.set('n', '<leader>cj', ':call jukit#cells#jump_to_next_cell()<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>ck', ':call jukit#cells#jump_to_previous_cell()<CR>', { noremap = true, silent = true })
 --
+function copyFilePath()
+	local filepath = vim.fn.expand("%")
+	if string.sub(filepath, 1, 6) == "oil://" then
+		filepath = string.sub(filepath, 7, -1)
+	end
+	vim.fn.setreg("+", filepath)
+end
+
+vim.keymap.set("n", "<leader>fp", copyFilePath, { desc = "copy the current filepath to clipboard" })
+
 -- Make line numbers default
 -- vim.opt.number = true
 -- You can also add relative line numbers, for help with jumping.
