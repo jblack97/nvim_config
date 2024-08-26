@@ -9,7 +9,7 @@ return {
 				["<C-p>"] = false,
 				["<C-i>"] = "actions.preview",
 			},
-			default_file_explorer = false,
+			default_file_explorer = true,
 		})
 	end,
 }
