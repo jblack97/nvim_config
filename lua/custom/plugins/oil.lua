@@ -8,6 +8,8 @@ return {
 			keymaps = {
 				["<C-p>"] = false,
 				["<C-i>"] = "actions.preview",
+				["<leader>cd"] = "actions.cd",
+				["<leader>cwd"] = "actions.open_cwd",
 			},
 			default_file_explorer = true,
 		})

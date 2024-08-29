@@ -73,7 +73,6 @@ vim.g.jukit_mappings = 0
 -- vim.keymap.set('n', '<leader>ck', ':call jukit#cells#jump_to_previous_cell()<CR>', { noremap = true, silent = true })
 --
 
--- Has to be a cleaner way of doing this
 function copyFilePath()
 	local filepath = vim.fn.expand("%")
 	if string.sub(filepath, 1, 6) == "oil://" then
@@ -85,11 +84,9 @@ end
 
 vim.keymap.set("n", "<leader>fp", copyFilePath, { desc = "copy the current filepath to clipboard" })
 
--- Make line numbers default
--- vim.opt.number = true
--- You can also add relative line numbers, for help with jumping.
---  Experiment for yourself to see if you like it!
-vim.opt.relativenumber = true
+-- Hybrid line numbers
+vim.opt.nu = true
+vim.opt.rnu = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
