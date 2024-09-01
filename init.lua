@@ -1,8 +1,8 @@
 -- MY STUFF
 --shortcut for explore command
 -- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+--
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 -- [[ Setting options ]]
@@ -805,7 +805,28 @@ require("lazy").setup({
 	require("custom.plugins.nvim-dap-python"),
 	require("custom.plugins.nvim-dap-ui"),
 	require("custom.plugins.oil"),
+	require("custom.plugins.image"),
+	require("custom.plugins.molten"),
 })
 
+--- Keybindings for Molten
+vim.keymap.set("n", "<localleader>mi", ":MoltenInit<CR>", { silent = true, desc = "Initialize Molten" })
+vim.keymap.set("n", "<localleader>e", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "Run operator selection" })
+vim.keymap.set("n", "<localleader>rl", ":MoltenEvaluateLine<CR>", { silent = true, desc = "Evaluate line" })
+vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { silent = true, desc = "Re-evaluate cell" })
+vim.keymap.set(
+	"v",
+	"<localleader>r",
+	":<C-u>MoltenEvaluateVisual<CR>gv",
+	{ silent = true, desc = "Evaluate visual selection" }
+)
+vim.keymap.set("n", "<localleader>rd", ":MoltenDelete<CR>", { silent = true, desc = "Delete Molten cell" })
+vim.keymap.set("n", "<localleader>oh", ":MoltenHideOutput<CR>", { silent = true, desc = "Hide output" })
+vim.keymap.set(
+	"n",
+	"<localleader>os",
+	":noautocmd MoltenEnterOutput<CR>",
+	{ silent = true, desc = "Show/enter output" }
+)
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

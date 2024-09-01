@@ -1,10 +1,10 @@
 return {
 	"stevearc/oil.nvim",
 	opts = {},
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	config = function()
 		require("oil").setup({
-			columns = { "icon" },
 			keymaps = {
 				["<C-p>"] = false,
 				["<C-i>"] = "actions.preview",
